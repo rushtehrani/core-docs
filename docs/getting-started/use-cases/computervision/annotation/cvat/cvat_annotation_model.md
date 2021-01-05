@@ -58,9 +58,9 @@ This is a type of faster-rcnn model with NAS backbone. If you are not sure about
 
 Depending upon your data, you can set epochs to train your model. There is no standard value that can work for all datasets. You generally have to try a different number of epochs to get the best model. Ideally, you do so by monitoring loss of your model while training. But if you are looking for a recommendation, we recommend you set epochs as follows: (number of images / batch_size (default: 1)) * 50. For instance, if you have 100 images, then your epochs will be 5000(rounded). Please note that the model will be trained using a pre-trained model, so you don't need to train as long as you would have to when not using the pre-trained model.
 
-Note that the current implementation of faster-rcnn in TensorFlow Object Detection API does not support batch training. That is, you shouldn't change `batch-size`.
+Note that the current implementation of faster-rcnn in TensorFlow Object Detection API does not support batch training. That is, you shouldn't change `batch_size`.
 
-**_Defaults_**: batch-size: 1, initial-learning-rate=0.003, num-steps=10000
+**_Defaults_**: batch_size: 1, initial_learning_rate=0.003, num_steps=10000
 
 #### frcnn-res101-coco: 
 
@@ -68,9 +68,9 @@ This is a type of faster-rcnn model with ResNet101 backbone. If you are not sure
 
 For how to set epochs, you can take a look at frcnn-nas-coco model since both models are faster-rcnn based.
 
-Note that the current implementation of faster-rcnn in TensorFlow Object Detection API does not support batch training. That is, you shouldn't change `batch-size`.
+Note that the current implementation of faster-rcnn in TensorFlow Object Detection API does not support batch training. That is, you shouldn't change `batch_size`.
 
-**_Defaults_**: batch-size: 1, initial-learning-rate: 0.0003, num-steps=10000
+**_Defaults_**: batch_size: 1, initial_learning_rate: 0.0003, num_steps=10000
 
 #### frcnn-res101-lowp
 
@@ -78,9 +78,9 @@ This is a type of faster-rcnn model with ResNet101 backbone with low number of p
 
 For how to set epochs, you can take a look at frcnn-nas-coco model since both models are faster-rcnn based.
 
-Note that the current implementation of faster-rcnn in TensorFlow Object Detection API does not support batch training. That is, you shouldn't change `batch-size`.
+Note that the current implementation of faster-rcnn in TensorFlow Object Detection API does not support batch training. That is, you shouldn't change `batch_size`.
 
-**_Defaults_**: batch-size: 1, initial-learning-rate: 0.0003, num-steps=10000
+**_Defaults_**: batch_size: 1, initial_learning_rate: 0.0003, num_steps=10000
 
 #### frcnn-res50-coco
 
@@ -88,9 +88,9 @@ This is a type of faster-rcnn model with ResNet50 backbone. If you are not sure 
 
 For how to set epochs, you can take a look at frcnn-nas-coco model since both models are faster-rcnn based.
 
-Note that the current implementation of faster-rcnn in TensorFlow Object Detection API does not support batch training. That is, you shouldn't change `batch-size`.
+Note that the current implementation of faster-rcnn in TensorFlow Object Detection API does not support batch training. That is, you shouldn't change `batch_size`.
 
-**_Defaults_**: batch-size: 1, initial-learning-rate: 0.0003, num-steps=10000
+**_Defaults_**: batch_size: 1, initial_learning_rate: 0.0003, num_steps=10000
 
 #### ssd-mobilenet-v2-coco
 
@@ -100,9 +100,9 @@ You will find the pre-trained model and config file for ssd-mobilenetv2 model tr
 
 This model is a good place to start if you don't have any specific model in mind. If you are data is very complicated (i.e many annotations per image), you should prefer faster-rcnn models over SSD.
 
-Depending upon your data, you can set epochs to train your model. There is no standard value that can work for all datasets. You generally have to try a different number of epochs to get the best model. Ideally, you do so by monitoring loss of your model while training. But if you are looking for a recommendation, we recommend you set epochs as follows: (number of images / batch-size (default: 24)) * 1000. For instance, if you have 100 images, then your epochs will be 4000 (rounded). Note that the model will be trained using a pre-trained model, so you don't need to train as long as you would have to when not using the pre-trained model.
+Depending upon your data, you can set epochs to train your model. There is no standard value that can work for all datasets. You generally have to try a different number of epochs to get the best model. Ideally, you do so by monitoring loss of your model while training. But if you are looking for a recommendation, we recommend you set epochs as follows: (number of images / batch_size (default: 24)) * 1000. For instance, if you have 100 images, then your epochs will be 4000 (rounded). Note that the model will be trained using a pre-trained model, so you don't need to train as long as you would have to when not using the pre-trained model.
 
-**_Defaults_**: batch-size: 24, initial-learning-rate: 0.004, num-steps=15000
+**_Defaults_**: batch_size: 24, initial_learning_rate: 0.004, num_steps=15000
 
 Note that same instructions apply for **ssd-mobilenet-v1** and **ssd-mobilenet-lite**. The only difference is the backbone model (i.e mobilenet v1) that they use.
 
@@ -113,8 +113,8 @@ You can specify some arguments in the `Hyperparameters` field seperated by a new
 Here is a sample for Tensorflow Object Detection API: 
 
 ```bash
-num-steps=100
-initial-learning-rate=0.0003
+num_steps=100
+initial_learning_rate=0.0003
 ``` 
 Our models are using default parameters used to outperform on the COCO dataset, and you should not change them in most cases.
 
@@ -122,12 +122,12 @@ Our models are using default parameters used to outperform on the COCO dataset, 
 
 | Parameter                 | Description                                                                 |
 | ------------------------- | --------------------------------------------------------------------------- |
-| num-steps                 | number of steps to train your model for.                                    |
-| initial-learning-rate     | initial learning rate for the model.                                        |
-| batch-size                | batch size for the training (should not be changed for faster-rcnn models). |
-| num-clones                | number of GPUs to train the model.                                          |
+| num_steps                 | number of steps to train your model for.                                    |
+| initial_learning_rate     | initial learning rate for the model.                                        |
+| batch_size                | batch size for the training (should not be changed for faster-rcnn models). |
+| num_clones                | number of GPUs to train the model.                                          |
 
-Note that you need to set `num-clones` to `4` (number of GPUs) if you select a node pool with say 4 GPUs (Tesla V100).
+Note that you need to set `num_clones` to `4` (number of GPUs) if you select a node pool with say 4 GPUs (Tesla V100).
 
 #### Optimizer Hyperparameters
 
@@ -135,10 +135,10 @@ Note that you need to set `num-clones` to `4` (number of GPUs) if you select a n
 
 | Parameter                 | Description                                     |
 | ------------------------- | ----------------------------------------------- |
-| schedule-step-1           | step 1 for learning rate decay.                 |
-| schedule-lr-1             | learning rate used after schedule-step-1 steps. |
-| schedule-step-2           | step 2 for learning rate decay.                 |
-| schedule-lr-2             | learning rate used after schedule-step-2 steps. |
+| schedule_step_1           | step 1 for learning rate decay.                 |
+| schedule_lr_1             | learning rate used after schedule_step_1 steps. |
+| schedule_step_2           | step 2 for learning rate decay.                 |
+| schedule_lr_2             | learning rate used after schedule_step_2 steps. |
 | momentum_optimizer_value  | momentum factor.                                |
 
 **_ssd_**  based models use RMSprop optimizer; you can change these parameters:
